@@ -48,7 +48,7 @@ class PatientController extends Controller
     public function show(string $id)
     {
         try {
-            $patient = Patient::with('dmeCases')->findOrFail($id);
+            $patient = Patient::with('patientCases')->findOrFail($id);
             return ApiResponse::success($patient, "Patient retrieved successfully.");
         } catch (\Exception $e) {
             return ApiResponse::error("Failed to retrieve patient.", $e->getMessage());
